@@ -1,0 +1,22 @@
+<br>
+
+<div class="form-group" style="margin-left:  20px; width: 400px;">
+
+    {{titulo}}
+
+    <br>
+    <br>
+
+    <label>Quantidade de curtidas: {{quantidadeDeLike}}</label> 
+    <br>
+    <label>Está curtido?: {{ehFavorito}}</label> 
+    <br>
+    <br>
+
+    <button type="button" class="btn" (click)="curtir()"> 
+        <span class="bi" [ngClass]="{'bi-star': !ehFavorito,
+                                     'bi-star-fill': ehFavorito}">
+        </span>
+    </button>
+
+</div>

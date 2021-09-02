@@ -1,0 +1,140 @@
+<form #variavelForm="ngForm" (ngSubmit)="enviar(variavelForm)">
+<div class="row">
+
+    <!-- coluna 1 -->
+    <div  class="col leftside" style="margin-left: 20px;"  ngModelGroup="usuario" #usuarioTela="ngModelGroup">
+        <br>
+        <h2 style="margin-left: 20px;">Identificação</h2>
+
+        <br>
+        <br>
+
+        <h2 style="margin-left: 20px; color: orange;">JÁ TENHO CADASTRO</h2>
+      <div>
+        <div class="form-group" style="width: 400px; margin-left: 20px;" >
+            <label for="login">
+                login:
+            </label>
+            <input required [(ngModel)]="usuario.login" #login="ngModel" name="login" id="login"  
+             placeholder="Informe o seu login" type="text" class="form-control" >
+        </div>
+        <div class="alert alert-danger" style="width: 400px; margin-left: 20px;" *ngIf="!login.valid && !login.untouched"> 
+            <div *ngIf="login.errors?.required" >Campo obrigatorio</div>
+        </div>
+        <br>
+        <div class="form-group" style="width: 400px; margin-left: 20px;">
+            <label for="senha">
+                senha:
+            </label>
+            <input required [(ngModel)]="usuario.senha" #senha="ngModel" name="senha" id="senha"
+            placeholder="Informe sua senha" type="text" class="form-control">
+        </div>
+        <div class="alert alert-danger" style="width: 400px; margin-left: 20px;" *ngIf="!senha.valid && !senha.untouched">
+            <div *ngIf="senha.errors?.required" >Campo obrigatorio</div>
+        </div>
+
+        <br>
+
+        <button type="button" class="btn" (click)="logar(usuarioTela)"
+        style="margin-left: 20px; color: white; background-color: orange; border-color: orange; text-align: center; width: 400px;"> Entrar </button>
+
+        <br>
+
+        <div class="row col-md-12" style="text-align: center; width: 400px;">
+            <div class="col leftside" style="text-align: right;">
+                <a href="https://www.w3schools.com">Visit RIGHT</a>
+            </div>     
+            <div class="col rightside" style="text-align: left;">
+                <a href="https://www.w3schools.com">Visit LEFT</a>
+            </div> 
+        </div>
+      </div>  
+    </div>
+
+    <!-- coluna 2  -->
+    <div  class="col rightside" style="margin-left: 20px; " ngModelGroup="usuarioNovo" #usuarioNovoTela="ngModelGroup">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+            
+            <h2 style="margin-left: 20px; color: orange;">QUERO ME CADASTRAR</h2>
+
+        <div>
+
+            <br>
+            <!-- email  -->
+            <div class="form-group" style="width: 400px; margin-left:  20px;">
+                <div class="form-group" style="width: 400px; margin-left: 20px;">
+                    <input required [(ngModel)]="usuarioNovo.email" #email="ngModel" name="email" id="email"
+                    placeholder="Email" type="text" class="form-control">
+                </div>
+                <div class="alert alert-danger" style="width: 400px; margin-left: 20px;" *ngIf="!email.valid && !email.untouched">
+                    <div *ngIf="email.errors?.required" >Campo obrigatorio</div>
+                </div>
+            </div>
+
+            <br>
+            <!-- senha  -->
+            <div class="form-group" style="width: 400px; margin-left:  20px;">
+                <div class="form-group" style="width: 400px; margin-left: 20px;">
+                    <input required [(ngModel)]="usuarioNovo.senhaUsuarioNovo" #senhaUsuarioNovo="ngModel" name="senhaUsuarioNovo" id="senhaUsuarioNovo"
+                    placeholder="Crie sua senha" type="text" class="form-control">
+                </div>
+                <div class="alert alert-danger" style="width: 400px; margin-left: 20px;" *ngIf="!senhaUsuarioNovo.valid && !senhaUsuarioNovo.untouched">
+                    <div *ngIf="senhaUsuarioNovo.errors?.required" >Campo obrigatorio</div>
+                </div>
+            </div>
+
+            <br>
+            <!-- confirmação senha  -->
+            <div class="form-group" style="width: 400px; margin-left:  20px;">
+                <div class="form-group" style="width: 400px; margin-left: 20px;">
+                    <input required [(ngModel)]="usuarioNovo.senhaConfirmUsuarioNovo" #senhaConfirmUsuarioNovo="ngModel" 
+                    name="senhaConfirmUsuarioNovo" id="senhaConfirmUsuarioNovo"
+                    placeholder="Confirme sua senha" type="text" class="form-control">
+                </div>
+                <div class="alert alert-danger" style="width: 400px; margin-left: 20px;" *ngIf="!senhaConfirmUsuarioNovo.valid && !senhaConfirmUsuarioNovo.untouched">
+                    <div *ngIf="senhaConfirmUsuarioNovo.errors?.required" >Campo obrigatorio</div>
+                </div>
+            </div>
+
+            <br>
+            <!-- CPF CNPJ -->
+            <div class="form-group" style="width: 400px; margin-left:  20px;">
+                <div class="form-group" style="width: 400px; margin-left: 20px;">
+                    <input required [(ngModel)]="usuarioNovo.cpfCnpj" #cpfCnpj="ngModel" 
+                    name="cpfCnpj" id="cpfCnpj"
+                    placeholder="Confirme sua senha" type="text" class="form-control">
+                </div>
+                <div class="alert alert-danger" style="width: 400px; margin-left: 20px;" *ngIf="!cpfCnpj.valid && !cpfCnpj.untouched">
+                    <div *ngIf="cpfCnpj.errors?.required" >Campo obrigatorio</div>
+                </div>
+            </div>
+
+            <br>
+            <!-- CEP -->
+            <div class="form-group" style="width: 400px; margin-left:  20px;">
+                <div class="form-group" style="width: 400px; margin-left: 20px;">
+                    <input required [(ngModel)]="usuarioNovo.cep" #cep="ngModel" 
+                    name="cep" id="cep"
+                    placeholder="Confirme sua senha" type="text" class="form-control">
+                </div>
+                <div class="alert alert-danger" style="width: 400px; margin-left: 20px;" *ngIf="!cep.valid && !cep.untouched">
+                    <div *ngIf="cep.errors?.required" >Campo obrigatorio</div>
+                </div>
+            </div>
+
+            <br>
+            
+            <button type="button" class="btn btn-primary" [disabled]="!usuarioNovoTela.valid"
+            style="margin-left: 40px; color: white; background-color: orange; border-color: orange; text-align: center; width: 400px;"> 
+            Cadastrar 
+            </button>
+
+        </div>
+    </div>
+</div>    
+</form>

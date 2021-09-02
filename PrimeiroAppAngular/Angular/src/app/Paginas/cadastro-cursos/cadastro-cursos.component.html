@@ -1,0 +1,45 @@
+<form #variavelForm="ngForm">
+
+<div style="margin-left: 20px;">
+    <br>
+    {{titulo}}
+    <br>
+    <br>
+    <div class="form-group">
+        <label >Nome do Curso</label>
+        <br>
+        <input required ngModel #txtCurso="ngModel" type="text" style="width: 400px;" id="txtNome" name="txtNome"
+            minlength="5" class="form-control">
+    </div>
+    <div class="alert alert-danger" style="width: 400px;" *ngIf="!txtCurso.untouched && !txtCurso.valid"> 
+        <div *ngIf="txtCurso.errors?.minlength" >Tamanho minimo de 5 caracteres</div>
+        <div *ngIf="txtCurso.errors?.required">Campo obrigatorio</div>
+    </div>
+
+    <br>
+    <div class="form-group" >
+        <label for="categoriaCurso">Categoria</label>
+        <br>
+        <select required ngModel #optCurso="ngModel" name="categoriaCurso" id="categoriaCurso" class="form-control" style="width: 400PX;">
+            <option *ngFor="let curso of cursos" [value]="curso.id" style="color: black;">{{curso.nome}}</option>
+        </select>
+    </div>
+    <div class="alert alert-danger" style="width: 400px;" *ngIf="!optCurso.untouched && !optCurso.valid"> 
+        <div *ngIf="optCurso.errors?.required" >Campo obrigatorio</div>
+    </div>
+
+    <div class="checkbox">
+        <label>
+            <input ngModel required name="chckGarantia" id="chckGarantia" type="checkbox"> Garantia de retorno em 30 dias
+        </label>
+    </div>      
+    <br>
+
+    {{variavelForm.value | json}}
+    <br>
+    <br>
+    <button class="btn btn-primary">Criar</button>
+
+</div>
+
+</form>

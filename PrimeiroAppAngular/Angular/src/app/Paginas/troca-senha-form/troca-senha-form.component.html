@@ -1,0 +1,53 @@
+<form  [formGroup]="form">
+   <div class="marg"  id="div0" name="div0">
+        <div class="form-group" id="div1" name="div1">
+                <br>
+                <label for="senhaAntiga"> Old Password </label> <br>
+                <input formControlName="senhaAntiga" type="text" class="form-control inputStyle" id="senhaAntiga" name="oldPass">
+            <div class="alert alert-danger errInputStyle" *ngIf="!senhaAntiga?.valid && !senhaAntiga?.untouched">
+                <div *ngIf="senhaAntiga?.errors?.required"> 
+                    Old Password is required
+                </div>
+                <div *ngIf="senhaAntiga?.errors?.senhaAntigaValida"> 
+                    Old Password is not valid
+                </div>
+            </div>
+        </div> 
+
+        
+
+        <div class="form-group" id="div2" name="div2">
+            <div>
+                <br>
+                <label for="senhaNova"> New Password </label>  <br>
+                <input required formControlName="senhaNova" type="text" class="form-control inputStyle" id="senhaNova" name="newPass">
+            </div>
+             <div class="alert alert-danger errInputStyle" *ngIf="!senhaNova?.valid && !senhaNova?.untouched && !senhaNova?.pending">
+                <div *ngIf="senhaNova?.errors?.required">
+                    New Password is required
+                </div>
+            </div> 
+        </div>
+
+        <div class="form-group" id="div3" name="div3">
+            <div>
+                <br>
+                <label for="senhaNovaConfirmacao"> Confirm Password </label>  <br>
+                <input required formControlName="senhaNovaConfirmacao" type="text" class="form-control inputStyle" 
+                id="senhaNovaConfirmacao" name="newPassConfirm" >
+            </div>        
+             <div class="alert alert-danger errInputStyle" *ngIf="!senhaNovaConfirmacao?.valid  && !senhaNovaConfirmacao?.untouched">
+                <div *ngIf="senhaNovaConfirmacao?.errors?.required">
+                    Confirm Password is required
+                </div>
+            </div> 
+            <div *ngIf="form.invalid && form.errors?.deveSerIgual" class="alert alert-danger">
+                    Password does not match!
+            </div>    
+        </div>
+
+        <button class="btn btn-primary btnStyle">
+            Change Password  
+        </button>
+    </div>
+</form>

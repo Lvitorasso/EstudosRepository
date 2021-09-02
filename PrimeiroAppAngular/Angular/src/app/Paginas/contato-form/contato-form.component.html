@@ -1,0 +1,43 @@
+<form>
+
+    <br>
+
+    <h2 style="margin-left: 20px;">{{title}}</h2>
+    
+    <!-- forma 1 de controlar a largura - usando a propriedade de largura por tamanho -->
+    <div class="form-group" style="width: 400px; margin-left: 20px;" >
+        <label for="nome">Nome:</label>
+        <input required [(ngModel)]="pessoa.nome" #nome="ngModel" name="nome" id="nome"  
+        minlength="3" maxlength="30" placeholder="Informe o seu nome" type="text" class="form-control" >
+    </div>
+    <div class="alert alert-danger" style="width: 400px; margin-left: 20px;" *ngIf="!nome.valid && !nome.untouched"> 
+        <div *ngIf="nome.errors?.required" >Campo obrigatorio</div>
+        <div *ngIf="nome.errors?.minlength" >O nome deve ter pelo menos 3 caracteres</div>
+        <div *ngIf="nome.errors?.maxlength" >O nome deve ter no maximo 30 caracteres</div>
+    </div>
+
+    <div class="form-group" style="width: 400px; margin-left: 20px;" >
+        <label for="sobreNome">sobrenome:</label>
+        <input required [(ngModel)]="pessoa.sobreNome" #sobreNome="ngModel" name="sobreNome" id="sobreNome" 
+        minlength="3" maxlength="50" placeholder="Informe o seu sobrenome" type="text" class="form-control" >
+    </div>
+    <div class="alert alert-danger" style="width: 400px; margin-left: 20px;" *ngIf="!sobreNome.valid && !sobreNome.untouched"> 
+        <div *ngIf="sobreNome.errors?.required" >Campo obrigatorio</div>
+        <div *ngIf="sobreNome.errors?.minlength" >O nome deve ter pelo menos 3 caracteres</div>
+        <div *ngIf="sobreNome.errors?.maxlength" >O nome deve ter no maximo 30 caracteres</div>
+    </div>
+
+    <br>
+
+    <!-- forma 2 de controlar a largura - usando q qtd de colunas do bootstrap -->
+    <div class="form-group col-lg-3" style="margin-left: 20px">
+        <label for="comentario">Comentario:</label>
+        <textarea [(ngModel)]="pessoa.comentario" #comentario="ngModel" name="comentario" id="comentario" 
+        placeholder="..." cols="30" rows="10" class="form-control"></textarea>
+    </div>
+    
+    <br>
+
+    <button type="button" class="btn btn-primary" 
+    style="margin-left: 20px; color: white; background-color: black; border-color: black;">Enviar</button>
+</form> 

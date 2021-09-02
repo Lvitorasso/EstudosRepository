@@ -1,0 +1,27 @@
+.zippy {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+.zippy-heading{
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.zippy-body{
+    padding: 20px;
+}
+
+.expandido
+{
+    background: #f0f0f0;
+}
+
+.bi-chevron-down{
+    float: right;
+}
+
+.bi-chevron-up{
+    float: right;
+}
