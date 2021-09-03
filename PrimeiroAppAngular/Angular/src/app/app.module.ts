@@ -1,3 +1,4 @@
+import { PostService } from './Service/post.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AutoresService } from './Paginas/autores/autores.service';
 import { NgModule } from '@angular/core';
@@ -51,7 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AutoresService],
+  providers: [AutoresService,PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
