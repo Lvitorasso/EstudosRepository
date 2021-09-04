@@ -17,7 +17,10 @@ posts: any;
     this.service.getPosts().subscribe(response => {
      this.posts = response;
      console.log(response);
-    }, error => {alert('error');});
+    }, (error: Response) => {
+      if(error.status == 404)
+          alert('error');
+    });
   }
 
   createPost(Input: HTMLInputElement)
@@ -29,7 +32,7 @@ posts: any;
  
       this.posts.splice(0,0, post)
       console.log(response)
-    });
+    }, error => {alert('error');});
     
   }
 
@@ -37,7 +40,7 @@ posts: any;
   {
     this.service.updatePost(post.id).subscribe(response => {
       console.log(response)
-    });
+    }, error => {alert('error');});
     //this.httpClient.put(this.url, JSON.stringify(post));
   }
   
@@ -47,7 +50,12 @@ posts: any;
     .subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
-    });
+    }, (error: Response) => {
+      if(error.status == 404)
+          alert('This post has already been deleted');
+      else
+          alert('An unexpected error occur');
+        });
     //this.httpClient.put(this.url, JSON.stringify(post));
   }
 

@@ -1,5 +1,10 @@
+import { AppError } from '../Compartilhado/Erros/app-error';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, map } from 'rxjs/operators';
+import { Observable,throwError  } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +34,11 @@ export class PostService {
 
   deletePost(id: any)
   {
-    return this.httpClient.delete(this.url+'/'+id);
+    return this.httpClient.delete(this.url+'/'+id).pipe(
+      catchError((error: Response) => {      
+          return throwError(new AppError());       
+     }));
   }
+
+
 }

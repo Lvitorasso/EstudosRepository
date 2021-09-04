@@ -1,7 +1,7 @@
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
 
-import { PasswordValidators } from '../../Validadores/password.validators';
+import { PasswordValidators } from '../../Compartilhado/Validadores/password.validators';
 
 @Component({
   selector: 'trocaSenha',

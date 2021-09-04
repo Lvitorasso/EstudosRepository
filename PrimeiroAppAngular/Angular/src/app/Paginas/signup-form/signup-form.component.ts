@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UsuarioValidators } from '../../Validadores/usuario.validators';
+import { UsuarioValidators } from '../../Compartilhado/Validadores/usuario.validators';
 
 @Component({
   selector: 'signup-form',
