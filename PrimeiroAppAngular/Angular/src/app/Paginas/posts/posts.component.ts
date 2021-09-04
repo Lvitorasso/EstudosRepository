@@ -1,3 +1,6 @@
+import { NotFoundError } from './../../Compartilhado/Erros/not-found-error';
+import { BadRequestError } from './../../Compartilhado/Erros/bad-request-error';
+import { AppError } from './../../Compartilhado/Erros/app-error';
 import { PostService } from './../../Service/post.service';
 import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -17,9 +20,13 @@ posts: any;
     this.service.getPosts().subscribe(response => {
      this.posts = response;
      console.log(response);
-    }, (error: Response) => {
-      if(error.status == 404)
-          alert('error');
+    }, (error: AppError) => {
+      if(error instanceof BadRequestError)
+        alert(error.originalError);
+      else if (error instanceof NotFoundError)
+        alert(error.originalError);
+      else
+        alert(error.originalError);
     });
   }
 
@@ -32,7 +39,14 @@ posts: any;
  
       this.posts.splice(0,0, post)
       console.log(response)
-    }, error => {alert('error');});
+    }, (error: AppError) => {
+      if(error instanceof BadRequestError)
+        alert(error.originalError);
+      else if (error instanceof NotFoundError)
+        alert(error.originalError);
+      else
+        alert(error.originalError);
+    });
     
   }
 
@@ -40,22 +54,31 @@ posts: any;
   {
     this.service.updatePost(post.id).subscribe(response => {
       console.log(response)
-    }, error => {alert('error');});
+    }, (error: AppError) => {
+      if(error instanceof BadRequestError)
+        alert(error.originalError);
+      else if (error instanceof NotFoundError)
+        alert(error.originalError);
+      else
+        alert(error.originalError);
+    });
     //this.httpClient.put(this.url, JSON.stringify(post));
   }
   
   deletePost(post: any)
   {
-    this.service.deletePost(post.id)
+    this.service.deletePost(post)
     .subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
-    }, (error: Response) => {
-      if(error.status == 404)
-          alert('This post has already been deleted');
+    }, (error: AppError) => {
+      if(error instanceof BadRequestError)
+        alert(error.originalError);
+      else if (error instanceof NotFoundError)
+        alert(error.originalError);
       else
-          alert('An unexpected error occur');
-        });
+        alert(error.originalError);
+    });
     //this.httpClient.put(this.url, JSON.stringify(post));
   }
 
