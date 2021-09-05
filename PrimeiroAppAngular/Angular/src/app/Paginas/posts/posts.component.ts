@@ -23,10 +23,8 @@ posts: any;
     }, (error: AppError) => {
       if(error instanceof BadRequestError)
         alert(error.originalError);
-      else if (error instanceof NotFoundError)
-        alert(error.originalError);
-      else
-        alert(error.originalError);
+        else
+          throw error;
     });
   }
 
@@ -42,10 +40,8 @@ posts: any;
     }, (error: AppError) => {
       if(error instanceof BadRequestError)
         alert(error.originalError);
-      else if (error instanceof NotFoundError)
-        alert(error.originalError);
       else
-        alert(error.originalError);
+        throw error;        
     });
     
   }
@@ -54,13 +50,6 @@ posts: any;
   {
     this.service.updatePost(post.id).subscribe(response => {
       console.log(response)
-    }, (error: AppError) => {
-      if(error instanceof BadRequestError)
-        alert(error.originalError);
-      else if (error instanceof NotFoundError)
-        alert(error.originalError);
-      else
-        alert(error.originalError);
     });
     //this.httpClient.put(this.url, JSON.stringify(post));
   }
@@ -71,14 +60,12 @@ posts: any;
     .subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
-    }, (error: AppError) => {
+    }), (error: AppError) => {
       if(error instanceof BadRequestError)
         alert(error.originalError);
-      else if (error instanceof NotFoundError)
-        alert(error.originalError);
       else
-        alert(error.originalError);
-    });
+        throw error;        
+    };
     //this.httpClient.put(this.url, JSON.stringify(post));
   }
 
