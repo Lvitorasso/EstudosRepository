@@ -17,7 +17,7 @@ export class PostsComponent  {
 posts: any;
 
   constructor(private service: PostService) { 
-    this.service.getPosts().subscribe(response => {
+    this.service.getAll().subscribe(response => {
      this.posts = response;
      console.log(response);
     }, (error: AppError) => {
@@ -33,7 +33,7 @@ posts: any;
     let post = {title: Input.value}
     Input.value = '';
 
-    this.service.createPost(JSON.stringify(post)).subscribe(response => {
+    this.service.create(JSON.stringify(post)).subscribe(response => {
  
       this.posts.splice(0,0, post)
       console.log(response)
@@ -48,7 +48,7 @@ posts: any;
 
   updatePost(post: any)
   {
-    this.service.updatePost(post.id).subscribe(response => {
+    this.service.update(post.id).subscribe(response => {
       console.log(response)
     });
     //this.httpClient.put(this.url, JSON.stringify(post));
@@ -56,7 +56,7 @@ posts: any;
   
   deletePost(post: any)
   {
-    this.service.deletePost(post)
+    this.service.delete(post)
     .subscribe(response => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
