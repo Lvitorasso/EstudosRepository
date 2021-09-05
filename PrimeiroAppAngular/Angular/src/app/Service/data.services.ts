@@ -4,7 +4,8 @@ import { NotFoundError } from './../Compartilhado/Erros/not-found-error';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
-import { Observable,throwError  } from 'rxjs';
+import { Observable, throwError  } from 'rxjs';
+
 
 
 export class DataService {
@@ -31,11 +32,12 @@ export class DataService {
 
   delete(id: any)
   {
+    return throwError(new AppError());
     return this.httpClient.delete(this.url+'/'+id).pipe(
       catchError(this.handleError));
   }
 
-  private handleError(error: any){
+  private handleError(error: Response){
     if(error.status == 404)
       return throwError(new NotFoundError(error.json())); 
     else if(error.status == 400)

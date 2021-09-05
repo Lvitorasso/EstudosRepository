@@ -27,12 +27,18 @@ export class PostsComponent implements OnInit {
   createPost(Input: HTMLInputElement)
   {
     let post = {title: Input.value}
+    this.posts.splice(0,0, post)
     Input.value = '';
 
     this.service.create(JSON.stringify(post))
-    .subscribe(newPost => { 
-      this.posts.splice(0,0, post)
-    }, (error: AppError) => {
+    .subscribe(
+      (newPost: any) => { 
+      post = newPost.id;
+    }, 
+    (error: AppError) => {
+
+      this.posts.splice(0,1);
+
       if(error instanceof BadRequestError)
         alert(error.originalError);
       else
@@ -53,17 +59,21 @@ export class PostsComponent implements OnInit {
   
   deletePost(post: any)
   {
+    let index = this.posts.indexOf(post);
+    this.posts.splice(index,1);
+
     this.service.delete(post)
-    .subscribe(() => {
-      let index = this.posts.indexOf(post);
-      this.posts.splice(index,1);
-    }), (error: AppError) => {
+    .subscribe(() => {    
+      null  
+    }, (error: AppError) => {   
+
+      this.posts.splice(index, 0, post);
+
       if(error instanceof BadRequestError)
         alert(error.originalError);
       else
         throw error;        
-    };
-    //this.httpClient.put(this.url, JSON.stringify(post));
+    });
   }
 
 }
