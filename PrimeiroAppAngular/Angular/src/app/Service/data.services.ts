@@ -13,8 +13,8 @@ export class DataService {
   }
 
   getAll(){
-    return this.httpClient.get(this.url).pipe(
-      catchError(this.handleError));
+    return this.httpClient.get(this.url)
+    .pipe(catchError(this.handleError));
   }
 
   create(resource: any)

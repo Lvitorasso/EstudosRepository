@@ -12,20 +12,16 @@ import { Observable } from 'rxjs';
 })
 
 
-export class PostsComponent  {
+export class PostsComponent implements OnInit {
 
-posts: any;
+  posts: any;
+
+  ngOnInit(){
+    this.service.getAll().subscribe(response => this.posts = response);
+  }
+
 
   constructor(private service: PostService) { 
-    this.service.getAll().subscribe(response => {
-     this.posts = response;
-     console.log(response);
-    }, (error: AppError) => {
-      if(error instanceof BadRequestError)
-        alert(error.originalError);
-        else
-          throw error;
-    });
   }
 
   createPost(Input: HTMLInputElement)
@@ -33,10 +29,9 @@ posts: any;
     let post = {title: Input.value}
     Input.value = '';
 
-    this.service.create(JSON.stringify(post)).subscribe(response => {
- 
+    this.service.create(JSON.stringify(post))
+    .subscribe(newPost => { 
       this.posts.splice(0,0, post)
-      console.log(response)
     }, (error: AppError) => {
       if(error instanceof BadRequestError)
         alert(error.originalError);
@@ -48,8 +43,10 @@ posts: any;
 
   updatePost(post: any)
   {
-    this.service.update(post.id).subscribe(response => {
-      console.log(response)
+    this.service.update(post.id)
+    .subscribe(
+      updatePost => {
+      console.log(updatePost)
     });
     //this.httpClient.put(this.url, JSON.stringify(post));
   }
@@ -57,7 +54,7 @@ posts: any;
   deletePost(post: any)
   {
     this.service.delete(post)
-    .subscribe(response => {
+    .subscribe(() => {
       let index = this.posts.indexOf(post);
       this.posts.splice(index,1);
     }), (error: AppError) => {
