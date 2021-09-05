@@ -1,3 +1,4 @@
+import { GitHubService } from './Service/github-followers.service';
 import { AppErrorHandler } from './Compartilhado/Erros/app.error-handler';
 import { ErrorHandler } from '@angular/core';
 import { PostService } from './Service/post.service';
@@ -25,6 +26,8 @@ import { FormArrayClassComponent } from './Paginas/form-array-class/form-array-c
 import { TrocaSenhaFormComponent } from './Paginas/troca-senha-form/troca-senha-form.component';
 import { PostsComponent } from './Paginas/posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GithubFollowersComponent } from './Paginas/github-followers/github-followers.component';
+import { SafePipe } from './Pipes/SafeByPass/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { HttpClientModule } from '@angular/common/http';
     SignupFormComponent,
     FormArrayClassComponent,
     TrocaSenhaFormComponent,
-    PostsComponent
+    PostsComponent,
+    GithubFollowersComponent,
+    SafePipe 
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AutoresService,PostService,
+  providers: [
+    AutoresService,
+     PostService,
+     GitHubService,
     {provide: ErrorHandler, useClass: AppErrorHandler}],
   bootstrap: [AppComponent]
 })

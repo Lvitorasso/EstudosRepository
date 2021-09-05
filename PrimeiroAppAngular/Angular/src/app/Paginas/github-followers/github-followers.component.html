@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+
+<br>
+
+<div id="div0" name="div0" *ngFor="let seguidor of seguidores" class="media">
+           <div class="media-left">
+               <!-- <a href="#"> -->
+                   <img class="media-object align-self-start mr-3 rounded-circle" [src]="seguidor.avatar_url" style="width: 80px; height: 80px;">   
+               <!-- </a>                  -->
+           </div>
+           <div class="media-body">
+                 <h5 class="media-heading">{{seguidor.login}}</h5>
+                 <a [href]="seguidor.html_url | safe" >{{seguidor.html_url}} </a>
+           </div>
+</div>
+
