@@ -22,54 +22,34 @@ export class PostService {
 
   getPosts(){
     return this.httpClient.get(this.url).pipe(
-      catchError((error: Response) => {      
-        if(error.status == 404)
-          return throwError(new NotFoundError(error.json())); 
-        else if(error.status == 400)
-          return throwError(new BadRequestError(error.json()));
-        else          
-          return throwError(new AppError(error.json()));
-     }));
+      catchError(this.handleError));
   }
 
   createPost(post: any)
   {
     return this.httpClient.post(this.url, JSON.stringify(post)).pipe(
-      catchError((error: Response) => {     
-        if(error.status == 404)
-          return throwError(new NotFoundError(error.json())); 
-        else if(error.status == 400)
-          return throwError(new BadRequestError(error.json()));
-        else          
-          return throwError(new AppError(error.json()));
-     }));
+      catchError(this.handleError));
   }
 
   updatePost(post: any)
   {
     return this.httpClient.patch(this.url+'/'+post.id, JSON.stringify({isRead: true})).pipe(
-      catchError((error: Response) => {      
-        if(error.status == 404)
-          return throwError(new NotFoundError(error.json())); 
-        else if(error.status == 400)
-          return throwError(new BadRequestError(error.json()));
-        else          
-          return throwError(new AppError(error.json()));
-     }));
+      catchError(this.handleError));
   }
 
   deletePost(id: any)
   {
     return this.httpClient.delete(this.url+'/'+id).pipe(
-      catchError((error: Response) => {      
-        if(error.status == 404)
-          return throwError(new NotFoundError(error.json())); 
-        else if(error.status == 400)
-          return throwError(new BadRequestError(error.json()));
-        else          
-          return throwError(new AppError(error.json()));
-     }));
+      catchError(this.handleError));
   }
 
+  private handleError(error: any){
+    if(error.status == 404)
+      return throwError(new NotFoundError(error.json())); 
+    else if(error.status == 400)
+      return throwError(new BadRequestError(error.json()));
+    else          
+      return throwError(new AppError(error.json()));
+  }
 
 }
