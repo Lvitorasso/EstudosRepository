@@ -19,7 +19,7 @@ import { NotFoundComponent } from './Paginas/not-found/not-found.component';
 import { GithubProfileComponent } from './Paginas/github-profile/github-profile.component';
 
 const routes: Routes = [
-  {path: 'followers/:id', component: GithubProfileComponent},
+  {path: 'followers/:id/:username', component: GithubProfileComponent},
   {path: 'followers', component: GithubFollowersComponent},
   {path: 'autores', component: AutoresComponent},
   {path: 'cadastro-cursos', component: CadastroCursosComponent},
