@@ -1,47 +1,31 @@
-<h2> ANGULAR </h2> 
-
-<!-- <app-autores></app-autores>  -->
-
- <!-- <login-form></login-form>  -->
-
-<!-- <router-outlet></router-outlet> -->
-
- <!-- <like [Favorito]="post.ehFavorito" (change)="onFavoriteChange($event)"></like> -->
-
- <!-- <bootstrap-panel>
-    <ng-container class="heading"></ng-container>
-    <div class="body"> 
-        <h2>body</h2>
-        <p>algum texto aqui...</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">LOGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/followers">GitHub<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"routerLink="/autores">Autores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cadastro-cursos">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">adm</a>
+        </li>
+      </ul>
     </div>
- </bootstrap-panel> -->
+  </nav>
 
-<!-- <camel-case-page></camel-case-page> -->
 
-<!-- <like-coracao [qtd-curtidas]= "_tweet.qtdCurtidas"
-              [eh-curtido]="_tweet.estaCurtido"></like-coracao> -->
-
-<!-- <cursos></cursos> -->
-
-<!-- <input type="text" [appInputFormat]="'uppercase'"> -->
-<!-- <zippy>aqui sim eu passo um valor</zippy> -->
-
-<!-- <cadastro-cursos></cadastro-cursos> -->
-
- <!-- <signup-form></signup-form> -->
-
-<!-- <array-class></array-class> -->
-
-<!-- <trocaSenha></trocaSenha> -->
-
-<!-- <posts></posts> -->
-
-<!-- <github-followers></github-followers>     -->
-
-<nav>
+<!-- <nav>
     <a routerLink="/followers"> GITHUB </a>
     <a routerLink="/autores"> AUTORES </a>
     <a routerLink="/cadastro-cursos"> CURSOS </a>
-</nav>
+</nav> -->
 
 <router-outlet></router-outlet>

@@ -16,9 +16,10 @@ import { ContatoFormComponent } from './Paginas/contato-form/contato-form.compon
 import { LikeComponent } from './Paginas/like/like.component';
 import { LoginFormComponent } from './Paginas/login-form/login-form.component';
 import { NotFoundComponent } from './Paginas/not-found/not-found.component';
+import { GithubProfileComponent } from './Paginas/github-profile/github-profile.component';
 
 const routes: Routes = [
-  {path: 'followers/:username', component: GithubFollowersComponent},
+  {path: 'followers/:id', component: GithubProfileComponent},
   {path: 'followers', component: GithubFollowersComponent},
   {path: 'autores', component: AutoresComponent},
   {path: 'cadastro-cursos', component: CadastroCursosComponent},
@@ -32,4 +33,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [GithubFollowersComponent, AutoresComponent, CadastroCursosComponent, ComponenteZippyComponent, LikeCoracaoComponent,
 CursosComponent, InputFormatDirective, SignupFormComponent, FormArrayClassComponent, TrocaSenhaFormComponent, PostsComponent, ContatoFormComponent,
-LoginFormComponent, LikeComponent, CamelCasePageComponent]
+LoginFormComponent, LikeComponent, CamelCasePageComponent, GithubProfileComponent]
