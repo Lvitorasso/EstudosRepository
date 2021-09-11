@@ -10,7 +10,7 @@
            </div>
            <div class="media-body">
                  <h5 class="media-heading">
-                    <a [routerLink]="['/followers', seguidor.id]">{{seguidor.login}}</a>
+                    <a [routerLink]="['/followers', seguidor.id, seguidor.login]">{{seguidor.login}}</a>
                     </h5>
                  <a [href]="seguidor.html_url | safe" >{{seguidor.html_url}} </a>
            </div>
