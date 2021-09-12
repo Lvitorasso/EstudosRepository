@@ -22,13 +22,11 @@ export class GithubFollowersComponent implements OnInit {
       this._route.paramMap,
       this._route.queryParamMap
     ]).pipe(switchMap(combined => {
-
         let id = combined[0].get('id');
         let page = combined[1].get('page');
-
         
         return this.service.getAll();
       }))
-      .subscribe((seguidor: any) => this.seguidores = seguidor);
+      .subscribe((seguidores: any) => this.seguidores = seguidores);
   }
 }

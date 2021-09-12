@@ -2,11 +2,8 @@ import { BadRequestError } from './../Compartilhado/Erros/bad-request-error';
 import { AppError } from './../Compartilhado/Erros/app-error';
 import { NotFoundError } from './../Compartilhado/Erros/not-found-error';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { Observable, throwError  } from 'rxjs';
-
-
 
 export class DataService {
 
@@ -14,8 +11,8 @@ export class DataService {
   }
 
   getAll(){
-    return this.httpClient.get(this.url)
-    .pipe(catchError(this.handleError));
+    return this.httpClient.get(this.url).pipe(map((response: any) => response));
+    // .pipe(catchError(this.handleError));
   }
 
   create(resource: any)
@@ -32,7 +29,6 @@ export class DataService {
 
   delete(id: any)
   {
-    return throwError(new AppError());
     return this.httpClient.delete(this.url+'/'+id).pipe(
       catchError(this.handleError));
   }
