@@ -1,0 +1,10 @@
+<h2> Home Page </h2>
+<br>
+<ul>
+    <li *ngFor="let archive of archives; index as i">
+        <a [routerLink]="['/archive', archive.ano, archive.mes]">
+            {{archive.ano}}/{{archive.mes}}
+        </a>
+    </li>
+</ul>
+

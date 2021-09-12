@@ -1,3 +1,4 @@
+import { ArchiveComponent } from './Paginas/archive/archive.component';
 import { ComponenteZippyComponent } from './Paginas/componente-zippy/componente-zippy.component';
 import { CadastroCursosComponent } from './Paginas/cadastro-cursos/cadastro-cursos.component';
 import { AutoresComponent } from './Paginas/autores/autores.component';
@@ -17,13 +18,41 @@ import { LikeComponent } from './Paginas/like/like.component';
 import { LoginFormComponent } from './Paginas/login-form/login-form.component';
 import { NotFoundComponent } from './Paginas/not-found/not-found.component';
 import { GithubProfileComponent } from './Paginas/github-profile/github-profile.component';
+import { BlogArchivesComponent } from './Paginas/blog-archives/blog-archives.component';
 
-const routes: Routes = [
-  {path: 'followers/:id/:username', component: GithubProfileComponent},
-  {path: 'followers', component: GithubFollowersComponent},
-  {path: 'autores', component: AutoresComponent},
-  {path: 'cadastro-cursos', component: CadastroCursosComponent},
-  {path: '**', component: NotFoundComponent}
+const routes: Routes = [  
+  {
+    path: '', 
+    component: BlogArchivesComponent
+  },
+  {
+    path: 'blog-archives', 
+    component: BlogArchivesComponent
+  },
+  {
+    path: 'followers/:id/:username', 
+    component: GithubProfileComponent
+  },
+  {
+    path: 'followers', 
+    component: GithubFollowersComponent
+  },
+  {
+    path: 'autores', 
+    component: AutoresComponent
+  },
+  {
+    path: 'cadastro-cursos', 
+    component: CadastroCursosComponent
+  },
+  {
+    path: 'archive/:ano/:mes', 
+    component: ArchiveComponent
+  },
+  {
+    path: '**', 
+    component: NotFoundComponent
+  }
 ];
 
 @NgModule({
@@ -33,4 +62,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [GithubFollowersComponent, AutoresComponent, CadastroCursosComponent, ComponenteZippyComponent, LikeCoracaoComponent,
 CursosComponent, InputFormatDirective, SignupFormComponent, FormArrayClassComponent, TrocaSenhaFormComponent, PostsComponent, ContatoFormComponent,
-LoginFormComponent, LikeComponent, CamelCasePageComponent, GithubProfileComponent]
+LoginFormComponent, LikeComponent, CamelCasePageComponent, GithubProfileComponent, ArchiveComponent, BlogArchivesComponent]

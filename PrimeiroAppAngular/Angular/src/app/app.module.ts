@@ -13,6 +13,7 @@ import { CamelCasePipe } from './Pipes/Camel-Case/camel-case.pipe';
 import { PanelComponent } from './Paginas/panel/panel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './Pipes/SafeByPass/safe.pipe';
+import { NavBarComponent } from './Paginas/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SafePipe } from './Pipes/SafeByPass/safe.pipe';
     CamelCasePipe,
     PanelComponent,
     SafePipe,
-    routingComponents
+    routingComponents,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
