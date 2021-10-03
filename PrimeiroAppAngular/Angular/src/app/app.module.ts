@@ -14,6 +14,7 @@ import { PanelComponent } from './Paginas/panel/panel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './Pipes/SafeByPass/safe.pipe';
 import { NavBarComponent } from './Paginas/nav-bar/nav-bar.component';
+import { GreeterComponent } from './Testes/Testes integrados/greeter/greeter.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavBarComponent } from './Paginas/nav-bar/nav-bar.component';
     PanelComponent,
     SafePipe,
     routingComponents,
-    NavBarComponent
+    NavBarComponent,
+    GreeterComponent
   ],
   imports: [
     BrowserModule,
