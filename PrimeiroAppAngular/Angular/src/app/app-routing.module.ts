@@ -19,11 +19,27 @@ import { LoginFormComponent } from './Paginas/login-form/login-form.component';
 import { NotFoundComponent } from './Paginas/not-found/not-found.component';
 import { GithubProfileComponent } from './Paginas/github-profile/github-profile.component';
 import { BlogArchivesComponent } from './Paginas/blog-archives/blog-archives.component';
+import { UserDetailsComponent } from './Testes/Testes integrados/3-user-details/user-details.component';
+import { UsersComponent } from './Testes/Testes integrados/users/users.component';
+import { TodosComponent } from './Testes/Testes unitarios/06-services/todos.component';
+import { HomeComponent } from './Testes/Testes integrados/home/home.component';
 
 const routes: Routes = [  
-  {
+  { 
+    path: 'users/:id', 
+    component: UserDetailsComponent 
+  },
+  { 
+    path: 'users', 
+    component: UsersComponent 
+  },
+  { 
+    path: 'todos', 
+    component: TodosComponent 
+  },
+  { 
     path: '', 
-    component: BlogArchivesComponent
+    component: HomeComponent 
   },
   {
     path: 'blog-archives', 
