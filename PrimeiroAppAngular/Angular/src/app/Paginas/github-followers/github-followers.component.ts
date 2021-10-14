@@ -17,6 +17,7 @@ export class GithubFollowersComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private service: GitHubService) { 
   }
 
+
   ngOnInit(): void {
     combineLatest([
       this._route.paramMap,

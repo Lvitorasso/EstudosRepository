@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './Pipes/SafeByPass/safe.pipe';
 import { NavBarComponent } from './Paginas/nav-bar/nav-bar.component';
 import { GreeterComponent } from './Testes/Testes integrados/greeter/greeter.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { GreeterComponent } from './Testes/Testes integrados/greeter/greeter.com
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AutoresService,

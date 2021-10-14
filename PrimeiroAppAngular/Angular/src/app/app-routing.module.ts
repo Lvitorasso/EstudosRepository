@@ -26,6 +26,10 @@ import { HomeComponent } from './Testes/Testes integrados/home/home.component';
 
 const routes: Routes = [  
   { 
+    path: '', 
+    component: FormArrayClassComponent 
+  },
+  { 
     path: 'users/:id', 
     component: UserDetailsComponent 
   },
@@ -36,10 +40,6 @@ const routes: Routes = [
   { 
     path: 'todos', 
     component: TodosComponent 
-  },
-  { 
-    path: '', 
-    component: HomeComponent 
   },
   {
     path: 'blog-archives', 

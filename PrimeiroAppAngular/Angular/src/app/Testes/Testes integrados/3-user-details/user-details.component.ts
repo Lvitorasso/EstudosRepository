@@ -9,6 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UserDetailsComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
+  
+  userId: any;
   ngOnInit() {
     this.route.params.subscribe(p => {
       if (p['id'] === 0)

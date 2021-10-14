@@ -1,10 +1,32 @@
+import { fadeInAnimacao, fadeOutAnimacao } from './../../animacoes/fade';
+import {  deslizar, deslizarPraEsquerdaAnimacao } from '../../animacoes/deslizar';
+import { animate, state, style, transition, trigger, useAnimation } from "@angular/animations";
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'array-class',
   templateUrl: './form-array-class.component.html',
-  styleUrls: ['./form-array-class.component.css']
+  styleUrls: ['./form-array-class.component.css'],
+  animations: [
+    trigger('deslizarAnimacao', [
+      transition(':enter', [
+        useAnimation( fadeInAnimacao, {
+          params: {
+            duration: '500ms',
+          }
+        })
+      ]),
+      transition(':leave', [
+        style({ backgroundColor: 'red'}),
+        useAnimation( fadeOutAnimacao ,{
+          params:{
+            duration: '5s'
+          }
+        })
+      ])
+    ])
+  ]
 })
 export class FormArrayClassComponent {
 
