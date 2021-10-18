@@ -1,6 +1,6 @@
 import { fadeInAnimacao, fadeOutAnimacao } from './../../animacoes/fade';
 import {  deslizar, deslizarPraEsquerdaAnimacao } from '../../animacoes/deslizar';
-import { animate, state, style, transition, trigger, useAnimation } from "@angular/animations";
+import { animate, animateChild, query, state, style, transition, trigger, useAnimation, group } from "@angular/animations";
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
@@ -9,6 +9,16 @@ import { FormArray, FormGroup, FormControl, FormBuilder, Validators } from '@ang
   templateUrl: './form-array-class.component.html',
   styleUrls: ['./form-array-class.component.css'],
   animations: [
+    trigger('deslizarPaiAnimacao',[
+      transition(':enter', [
+        group([        
+          query('h3', [
+          style({transform: 'translateY(-20px)'}),
+          animate(1000)
+        ]),
+        query('@deslizarAnimacao', animateChild())
+      ])])
+    ]),
     trigger('deslizarAnimacao', [
       transition(':enter', [
         useAnimation( fadeInAnimacao, {
@@ -49,6 +59,12 @@ export class FormArrayClassComponent {
   //  topics: fb.array([])
   //  });
   //}
+
+  constructor(){    
+    this.Topics.push(new FormControl('a'));
+    this.Topics.push(new FormControl('b'));
+    this.Topics.push(new FormControl('c'));
+  }
 
   addTopic(topic: HTMLInputElement){
     this.Topics.push(new FormControl(topic.value));

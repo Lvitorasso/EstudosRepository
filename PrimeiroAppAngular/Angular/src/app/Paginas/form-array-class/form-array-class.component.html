@@ -1,13 +1,16 @@
-<div class="container">
+
+<div @deslizarPaiAnimacao class="container">
 
     <h3>TO DO LIST</h3>
-<form [formGroup]="form">
-    <input type="text" class="form-control" (keyup.enter)="addTopic(topic)" #topic>
-    <ul class="list-group">
-        <li @deslizarAnimacao class="list-group-item" *ngFor="let topic of getControls()"
-        (click)="removeItem(topic)">
-            {{ topic.value }}
-        </li>
-    </ul>
-</form>
+    
+    <form [formGroup]="form">
+        <input type="text" class="form-control" (keyup.enter)="addTopic(topic)" #topic>
+        <ul class="list-group">
+            <li @deslizarAnimacao class="list-group-item" *ngFor="let topic of getControls()"
+            (click)="removeItem(topic)">
+                {{ topic.value }}
+            </li>
+        </ul>
+    </form>
+    
 </div>
