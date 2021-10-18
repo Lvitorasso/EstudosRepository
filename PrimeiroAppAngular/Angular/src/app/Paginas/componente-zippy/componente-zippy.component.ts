@@ -1,10 +1,11 @@
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component,  Input } from '@angular/core';
+import { animacaoZippy } from './componente-zippy.animations';
 
 @Component({
   selector: 'zippy',
   templateUrl: './componente-zippy.component.html',
-  styleUrls: ['./componente-zippy.component.css']
+  styleUrls: ['./componente-zippy.component.css'],
+  animations: [ animacaoZippy  ]
 })
 export class ComponenteZippyComponent {
 

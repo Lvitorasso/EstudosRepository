@@ -27,7 +27,7 @@ import { HomeComponent } from './Testes/Testes integrados/home/home.component';
 const routes: Routes = [  
   { 
     path: '', 
-    component: FormArrayClassComponent 
+    component: HomeComponent 
   },
   { 
     path: 'users/:id', 

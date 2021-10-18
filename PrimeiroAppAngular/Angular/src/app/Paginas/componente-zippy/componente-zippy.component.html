@@ -5,7 +5,8 @@
         <span class="bi" [ngClass]="{'bi-chevron-down': !estaExpandido,
                                      'bi-chevron-up': estaExpandido}" ></span>
     </div>
-    <div class="zippy-body" id="divBody" name="divBody" *ngIf="estaExpandido"> 
+    <div [@animacaoZippy]="estaExpandido ? 'expanded' : 'collapse'"   
+         class="zippy-body" id="divBody" name="divBody" *ngIf="estaExpandido"> 
         <ng-content>
         </ng-content>
     </div>
