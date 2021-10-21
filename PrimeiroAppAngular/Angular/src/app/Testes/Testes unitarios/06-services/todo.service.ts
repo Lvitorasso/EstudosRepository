@@ -1,13 +1,15 @@
-
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 
+@Injectable()
 export class TodoService { 
+
   constructor(private http: HttpClient) { 
   }
 
   add(todo: any) {
-    return this.http.post('...', todo).pipe(map((r: any) => r.json()));
+    return this.http.post('...', todo).pipe(map((r: any) => r.json));
   }
 
   getTodos() { 

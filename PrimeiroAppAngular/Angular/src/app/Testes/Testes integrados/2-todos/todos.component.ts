@@ -10,7 +10,8 @@ export class TodosComponent implements OnInit {
   todos: any[] = [];
   message: any; 
 
-  constructor(private service: TodoService) {}
+  constructor(private service: TodoService) {    
+  }
 
   ngOnInit() { 
     this.service.getTodos().subscribe((t: any)  => this.todos = t);

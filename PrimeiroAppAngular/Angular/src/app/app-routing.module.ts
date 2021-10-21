@@ -24,7 +24,7 @@ import { UsersComponent } from './Testes/Testes integrados/users/users.component
 import { TodosComponent } from './Testes/Testes unitarios/06-services/todos.component';
 import { HomeComponent } from './Testes/Testes integrados/home/home.component';
 
-const routes: Routes = [  
+export const routes: Routes = [  
   { 
     path: '', 
     component: HomeComponent 

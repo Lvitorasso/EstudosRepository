@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { GitHubService } from './Service/github-followers.service';
 import { AppErrorHandler } from './Compartilhado/Erros/app.error-handler';
 import { ErrorHandler } from '@angular/core';
@@ -17,6 +18,7 @@ import { NavBarComponent } from './Paginas/nav-bar/nav-bar.component';
 import { GreeterComponent } from './Testes/Testes integrados/greeter/greeter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HttpClientTestingModule,
     BrowserAnimationsModule
   ],
   providers: [
