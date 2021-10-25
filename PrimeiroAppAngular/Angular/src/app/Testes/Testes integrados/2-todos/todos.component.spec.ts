@@ -1,5 +1,5 @@
 import { TodoService } from './todo.service';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { TodosComponent } from './todos.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of, from } from 'rxjs';
@@ -27,14 +27,21 @@ describe('TodosComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('deve pegar do servidor', () => {
+  it('deve pegar do servidor', waitForAsync(() => {
     let service = TestBed.inject(TodoService);
-    spyOn(service, 'getTodos').and.returnValue(of([1, 2, 3]))
+    spyOn(service, 'getTodosPromise').and.returnValue(Promise.resolve([1, 2, 3]))
     
     fixture.detectChanges();
 
+    tick();
+    
     expect(component.todos.length).toBe(3);
-  });
+
+    // fixture.whenStable().then(() => {
+    //   expect(component.todos.length).toBe(3);
+    // })
+
+  }));
 
   
 });
